@@ -1,0 +1,10 @@
+pandoc: 2.16.2
+pkgdown: 2.0.2
+pkgdown_sha: ~
+articles:
+  package_intro: package_intro.html
+last_built: 2022-03-04T23:07Z
+urls:
+  reference: https://muwizayeon.github.io/map48_project/reference
+  article: https://muwizayeon.github.io/map48_project/articles
+
