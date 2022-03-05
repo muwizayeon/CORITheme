@@ -1,7 +1,7 @@
 #' A [ggplot2] theme formatted in the Center on Rural Innovation (CORI) style
 #'
-#' \code{theme_cori_bar_print} provides [ggplot2] theme formatted
-#' according to the CORI style guide for print.
+#' \code{theme_cori} provides [ggplot2] theme formatted
+#' according to the CORI style guide.
 #'
 #' @import extrafont
 #' @import ggreple
@@ -12,7 +12,7 @@
 #'
 #' @export
 #'
-theme_cori_print <- function(base_family = "TT Hoves", base_font_size=12) {
+theme_cori <- function(base_family = "TT Hoves", base_font_size=12) {
   black = "#121E22"
   gray = "#666666"
 
