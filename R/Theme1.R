@@ -3,6 +3,7 @@ install.packages('showtext')
 library(showtext)
 
 bar_theme <- function() {
+  theme_minimal() + 
   theme(legend.position="bottom", 
         legend.justification = "left",
         legend.title=element_blank(),
