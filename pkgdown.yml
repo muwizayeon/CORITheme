@@ -1,0 +1,10 @@
+pandoc: 2.14.2
+pkgdown: 2.0.2
+pkgdown_sha: ~
+articles:
+  package_intro: package_intro.html
+last_built: 2022-03-05T00:56Z
+urls:
+  reference: https://muwizayeon.github.io/CORITheme/reference
+  article: https://muwizayeon.github.io/CORITheme/articles
+
