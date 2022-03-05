@@ -1,0 +1,18 @@
+Package: CORITheme
+Title: Updating the theme of CORI plots
+Version: 0.0.0.9000
+Authors@R: 
+    person("Meongsu", "Lee", , "muwizayeon@gmail.com", role = c("aut", "cre"),
+       comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: The CORITheme package establishes a set of aesthetic guidelines for CORI plots.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    ggplot2
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
+URL: https://muwizayeon.github.io/map48_project/

@@ -1,0 +1,21 @@
+---
+title: "Introducing CORITheme"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introducing CORITheme}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Overview
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(CORITheme)
+```
