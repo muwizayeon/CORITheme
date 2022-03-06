@@ -36,7 +36,12 @@ library(dplyr)
 library(CORITheme)
 ```
 
-## Creating CORI-Themed Bar Graphs 
+## Dependencies
+
+You should install following packages before you install **CORITheme**.
+
+
+## Creating CORI-Themed Bar Graphs
 
 Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category). 
 
