@@ -8,6 +8,7 @@
 [![R-CMD-check](https://github.com/muwizayeon/CORITheme/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/muwizayeon/CORITheme/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
+
 Welcome to the CORITheme package! The goal is to make the process of
 creating publication-ready graphics and charts as easy as possible.
 Here’s how to start.
