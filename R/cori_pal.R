@@ -13,5 +13,5 @@ cori_pal <- function(palette = "ctg2gn", reverse = FALSE, ...) {
 
   if (reverse) pal <- rev(pal)
 
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
