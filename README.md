@@ -13,6 +13,7 @@ Welcome to the CORITheme package! The goal is to make the process of
 creating publication-ready graphics and charts as easy as possible.
 Here’s how to start.
 
+
 ## Installation
 
 You can install the development version of CORITheme from
