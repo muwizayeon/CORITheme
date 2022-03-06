@@ -4,8 +4,7 @@
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
-#' @examples
-#' cori_pal("ctg7")
+#' @examples cori_pal("ctg7")
 #'
 #' @export
 #' 

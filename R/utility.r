@@ -18,7 +18,7 @@ cori_colors <- c(
 #' List of CORI palettes
 #'
 #' @examples
-#' cori_palettes("ctg2gn")
+#' cori_palettes[["ctg2gn"]]
 #'
 #' @export
 #' 

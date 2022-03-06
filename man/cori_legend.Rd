@@ -6,6 +6,11 @@
 \usage{
 cori_legend(title = "", font_size = 14)
 }
+\arguments{
+\item{title}{a title name of legend, default ""}
+
+\item{font_size}{font size of legend, default 14}
+}
 \description{
 \code{cori_legend} provides \link{ggplot2} theme formatted
 according to the CORI style guide.

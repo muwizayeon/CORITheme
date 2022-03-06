@@ -4,11 +4,10 @@
 #' according to the CORI style guide.
 #'
 #' @import extrafont
-#' @import greple
+#' @import ggrepel
 #' @md
-#'
-#' @param
-#' @param
+#' @param base_family, the font family that CORI employed, default TT Hoves
+#' @param base_font_size, the default text font size
 #'
 #' @export
 #'
@@ -38,7 +37,7 @@ theme_cori <- function(base_family = "TT Hoves", base_font_size=12) {
                                          color=gray,
                                          size=8,
                                          hjust=0.015,
-                                         margin=margin(t=-35, b=40)
+                                         margin=ggplot2::margin(t=-35, b=40)
                                            #base_font_size
                                        ),
                axis.title.y = ggplot2::element_text(
@@ -46,11 +45,11 @@ theme_cori <- function(base_family = "TT Hoves", base_font_size=12) {
                                          color = black,
                                          angle = 0,
                                          vjust = 0.95,
-                                         margin=margin(l=30, r=-40)
+                                         margin=ggplot2::margin(l=30, r=-40)
                                        ),
-               axis.title.x = element_blank(),
-               panel.grid.major.x = element_blank(),
-               panel.grid.minor.x = element_blank(),
+               axis.title.x = ggplot2::element_blank(),
+               panel.grid.major.x = ggplot2::element_blank(),
+               panel.grid.minor.x = ggplot2::element_blank(),
                legend.position="bottom",
                legend.justification = c(0,0)
                #complete = TRUE

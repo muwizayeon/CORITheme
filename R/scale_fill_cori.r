@@ -7,9 +7,7 @@
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @examples
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
-#' geom_point(size = 4, alpha = .6) +
-#' scale_color_cori(discrete = FALSE, palette = "ctg7")
+#' ggplot2::ggplot(iris, ggplot2::aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) + ggplot2::geom_point(size = 4, alpha = .6) + scale_color_cori(discrete = FALSE, palette = "ctg7")
 #'
 #' @export
 #' 

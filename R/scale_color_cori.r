@@ -7,8 +7,8 @@
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @examples
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
-#' geom_point(size = 4) + scale_color_cori()
+#' ggplot2::ggplot(iris, ggplot2::aes(Sepal.Width, Sepal.Length, color = Species)) +
+#' ggplot2::geom_point(size = 4) + scale_color_cori()
 #'
 #' @export
 #' 

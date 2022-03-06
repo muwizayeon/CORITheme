@@ -6,6 +6,11 @@
 \usage{
 theme_cori(base_family = "TT Hoves", base_font_size = 12)
 }
+\arguments{
+\item{base_family, }{the font family that CORI employed, default TT Hoves}
+
+\item{base_font_size, }{the default text font size}
+}
 \description{
 \code{theme_cori} provides \link{ggplot2} theme formatted
 according to the CORI style guide.

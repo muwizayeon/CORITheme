@@ -1,8 +1,1 @@
-^\.github$
-^README\.Rmd$
-^_pkgdown\.yml$
-^docs$
-^pkgdown$
-^ipynb$
-^.*\.Rproj$
-^\.Rproj\.user$
+^LICENSE\.md$
