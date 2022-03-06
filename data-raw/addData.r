@@ -9,3 +9,6 @@ usethis::use_data(ias, overwrite = TRUE, compress = "xz")
 
 rsh_pop <- read.csv("reshaped_population_sample_data.csv")
 usethis::use_data(rsh_pop, compress="xz", overwrite = TRUE)
+
+pbra <- read.csv("population_by_race_ah.csv")
+usethis::use_data(pbra, compress="xz", overwrite = TRUE)
