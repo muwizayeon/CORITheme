@@ -31,6 +31,9 @@
     <loc>https://muwizayeon.github.io/CORITheme/reference/cori_cols.html</loc>
   </url>
   <url>
+    <loc>https://muwizayeon.github.io/CORITheme/reference/cori_legend.html</loc>
+  </url>
+  <url>
     <loc>https://muwizayeon.github.io/CORITheme/reference/cori_pal.html</loc>
   </url>
   <url>
@@ -46,6 +49,12 @@
     <loc>https://muwizayeon.github.io/CORITheme/reference/scale_fill_cori.html</loc>
   </url>
   <url>
-    <loc>https://muwizayeon.github.io/CORITheme/reference/strsplit1.html</loc>
+    <loc>https://muwizayeon.github.io/CORITheme/reference/theme_cori.html</loc>
+  </url>
+  <url>
+    <loc>https://muwizayeon.github.io/CORITheme/reference/tthoves_install.html</loc>
+  </url>
+  <url>
+    <loc>https://muwizayeon.github.io/CORITheme/reference/tthoves_test.html</loc>
   </url>
 </urlset>
