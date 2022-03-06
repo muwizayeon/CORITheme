@@ -83,6 +83,11 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CORITheme</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
+</h2>
+<p>You should install following packages before you install <strong>CORITheme</strong>.</p>
+</div>
+<div class="section level2">
 <h2 id="creating-cori-themed-bar-graphs">Creating CORI-Themed Bar Graphs<a class="anchor" aria-label="anchor" href="#creating-cori-themed-bar-graphs"></a>
 </h2>
 <p>Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category).</p>
@@ -117,7 +122,7 @@
 <span class="va">rcu</span> <span class="op">&lt;-</span> <span class="va">rcu</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>
 <span class="va">rcu</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rcu</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>
 
-<span class="va">rcu</span> <span class="op">%&gt;%</span>
+<span class="va">rcu</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">st_cnty</span>, y<span class="op">=</span><span class="va">tot_pop</span>, fill<span class="op">=</span><span class="va">year</span><span class="op">)</span> <span class="op">+</span> 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>position<span class="op">=</span><span class="st">"dodge"</span>, stat<span class="op">=</span><span class="st">"identity"</span>, width <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span> 

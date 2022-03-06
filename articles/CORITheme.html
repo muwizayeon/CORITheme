@@ -74,9 +74,112 @@
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CORITheme</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'dplyr'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CORITheme</span><span class="op">)</span></code></pre></div>
+<div class="section level3">
+<h3 id="creating-cori-themed-bar-graphs">Creating CORI-Themed Bar Graphs<a class="anchor" aria-label="anchor" href="#creating-cori-themed-bar-graphs"></a>
+</h3>
+<p>Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category).</p>
+<div class="section level4">
+<h4 id="one-group">One Group<a class="anchor" aria-label="anchor" href="#one-group"></a>
+</h4>
+<p>Here’s the simplest type of bar chart. There is just one group visualized over multiple categories. This is what most people picture when thinking about bar charts.</p>
+<p>As an example, here’s the population of diffrent races across the United States of America.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Start off with population data from the U.S. Census Bureau's ACS</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">upr</span><span class="op">)</span>
+<span class="va">upr</span> <span class="op">&lt;-</span> <span class="va">upr</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">upr</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">race</span>, x<span class="op">=</span><span class="va">population</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">race</span><span class="op">)</span>,hjust<span class="op">=</span><span class="fl">0</span>,vjust<span class="op">=</span><span class="op">-</span><span class="fl">2</span>,size<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,width<span class="op">=</span><span class="fl">0.5</span>, fill <span class="op">=</span> <span class="st">"#01835D"</span><span class="op">)</span><span class="op">+</span>
+    <span class="fu"><a href="../reference/theme_cori.html">theme_cori</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/theme_cori_horizontal_bars.html">theme_cori_horizontal_bars</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"U.S. population by race"</span>,
+     subtitle <span class="op">=</span> <span class="st">'All estimates are across 2014.'</span>,
+     x<span class="op">=</span><span class="st">"\nPopulation"</span><span class="op">)</span> </code></pre></div>
+<p><img src="CORITheme_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p>Notice the horizontal format of the bars. This is accomplished by attaching the coord_flip() function to the plot code (as seen above). Use horizontal bars when you have more than items to visualize and when the labels are on the longer side and would appear messy or squished if written along the bottom of the plot.</p>
+<p><strong>Tip:</strong> The theme also works for vertical bars; simply omit the coord_flip() function.</p>
 </div>
-  </main>
+<div class="section level4">
+<h4 id="two-groups">Two Groups<a class="anchor" aria-label="anchor" href="#two-groups"></a>
+</h4>
+<p>The beauty of bar charts shines through when using more than one group. This chart format allows for simple comparisons that humans can perceive quickly.</p>
+<p>Here’s an example of a dodge chart (one that compares two groups side-by-side). The user can easily compare different unemployment levels in the top five rural counties with the highest unemployment levels.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#  Rural counties with the highest number\nof unemployed people</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">rcu</span><span class="op">)</span>
+<span class="va">rcu</span> <span class="op">&lt;-</span> <span class="va">rcu</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>
+<span class="va">rcu</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rcu</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>
+
+<span class="va">rcu</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">st_cnty</span>, y<span class="op">=</span><span class="va">tot_pop</span>, fill<span class="op">=</span><span class="va">year</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>position<span class="op">=</span><span class="st">"dodge"</span>, stat<span class="op">=</span><span class="st">"identity"</span>, width <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="co"># geom_text(x=10000, y=0, aes(label="Persons")) +</span>
+    <span class="fu"><a href="../reference/cori_legend.html">cori_legend</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Rural Counties"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Rural counties with the highest number\nof unemployed people"</span>,
+         subtitle<span class="op">=</span><span class="st">"Pulaski, MO saw the highest number of unemployed\npeople in both 2014 and 2019."</span>,
+         caption<span class="op">=</span><span class="st">"Source: U.S. Census Bureau"</span>,
+         y<span class="op">=</span><span class="st">"Population"</span>
+         <span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="../reference/scale_fill_cori.html">scale_fill_cori</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"ctg2gn"</span>, discrete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="../reference/theme_cori.html">theme_cori</a></span><span class="op">(</span>base_font_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></code></pre></div>
+<p><img src="CORITheme_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p><strong>Tip:</strong> The theme is quite flexible. The x-axis can support any type of categorical variable, whether it is geographic, race or time data.</p>
+<p>Similar to dodge charts are stacked charts in which the groups are stacked instead of next to each other.</p>
+<p>Here’s an example comparing the Asian and Hispanic populations in various rural communities.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Start off with population data from the U.S. Census Bureau's ACS</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">pbra</span><span class="op">)</span>
+<span class="va">pbra</span> <span class="op">&lt;-</span> <span class="va">pbra</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pbra</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">county</span>, y<span class="op">=</span><span class="va">population</span>, fill<span class="op">=</span><span class="va">race</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Asian and Hispanic populations\nin rural communities"</span>,
+         subtitle <span class="op">=</span> <span class="st">'All estimates are across 2019.'</span>,
+         x<span class="op">=</span><span class="st">"Year"</span>, 
+         y<span class="op">=</span><span class="st">'Population'</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="../reference/theme_cori.html">theme_cori</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="../reference/scale_fill_cori.html">scale_fill_cori</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">'ctg2gn'</span><span class="op">)</span> <span class="op">+</span> <span class="co">#Use the color palette for the two greens</span>
+    <span class="fu"><a href="../reference/cori_legend.html">cori_legend</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="CORITheme_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><strong>Tip:</strong> For added clarity and a greater sense of the data, the package allows you to add a horizontal trend line with an average.</p>
+<p>Another interesting way to visualize the comparisons between two groups is to use a population pyramid. At its core, this is simply two bar charts that are rotated and positioned side-by-side.</p>
+<p>The following example compares the share of individuals with high-speed internet in Jefferson County, Alabama, over time, broken down by race.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Start with data on high speed internet access in Jefferson County Alabama</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ias</span><span class="op">)</span>
+<span class="va">ias</span> <span class="op">&lt;-</span> <span class="va">ias</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">ias</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, y<span class="op">=</span><span class="va">percent_high_speed_internet</span>, fill<span class="op">=</span><span class="va">race</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">ias</span>, <span class="va">race</span><span class="op">==</span><span class="st">"black"</span><span class="op">)</span>, stat <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">ias</span>, <span class="va">race</span><span class="op">==</span><span class="st">"white"</span><span class="op">)</span>, stat <span class="op">=</span> <span class="st">"identity"</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="op">-</span><span class="va">percent_high_speed_internet</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Percent with high-speed internet\nin Jefferson County, AL"</span>,
+         subtitle <span class="op">=</span> <span class="st">'High-speed internet rates among White individuals were\nalmost double what they were among Black individuals.'</span>,
+          x<span class="op">=</span><span class="st">"Year"</span>, 
+          y<span class="op">=</span><span class="st">'\nPercent with high-speed internet'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="../reference/theme_cori.html">theme_cori</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="../reference/scale_fill_cori.html">scale_fill_cori</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">'ctg2gn'</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="../reference/cori_legend.html">cori_legend</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="CORITheme_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><strong>Tip:</strong> Use this graph format to compare two groups over time. It is usually used for comparing men and women, but it works as well for other categories.</p>
+<p><strong>Tip:</strong> Note that the time variable (x variable) must be a factor.</p>
+</div>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
