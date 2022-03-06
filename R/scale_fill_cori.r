@@ -25,3 +25,12 @@ scale_fill_cori <- function(
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
+
+
+scale_fill_cori_seven_race <- function()
+{
+  
+    ggplot2::scale_fill_manual(values = 
+                                c("#01835D","#26C6DA","#FFF176",
+                                  "#FF7043","#3F51B5","#455A64","#2196F3"))
+}
