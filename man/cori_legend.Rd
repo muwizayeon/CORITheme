@@ -4,12 +4,14 @@
 \alias{cori_legend}
 \title{A \link{ggplot2} legend formatted in the Center on Rural Innovation (CORI) style}
 \usage{
-cori_legend(title = "", font_size = 14)
+cori_legend(title = "", base_font_size = 12, vjust = 0)
 }
 \arguments{
 \item{title}{a title name of legend, default ""}
 
-\item{font_size}{font size of legend, default 14}
+\item{base_font_size}{font size of legend, default 14}
+
+\item{vjust}{adjust the vertical position}
 }
 \description{
 \code{cori_legend} provides \link{ggplot2} theme formatted
