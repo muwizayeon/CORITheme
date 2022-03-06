@@ -61,7 +61,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of CORITheme is to …</p>
+<p>Welcome to the CORITheme package! The goal is to make the process of creating publication-ready graphics and charts as easy as possible. Here’s how to start.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -69,14 +69,64 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"muwizayeon/CORITheme"</span><span class="op">)</span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CORITheme</span><span class="op">)</span>
 <span class="co">## basic example code</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="bar-charts">Bar Charts<a class="anchor" aria-label="anchor" href="#bar-charts"></a>
+</h2>
+<p>Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category).</p>
+<p>###One Group</p>
+<p>Here’s the simplest type of bar chart. There is just one group visualized over multiple categories. This is what most people picture when thinking about bar charts.</p>
+<p>As an example, here’s the population of American Indians in xx County in xx year.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from Harsh's horizontal one-color bar chart</span></span></code></pre></div>
+<p>Add photo of Harsh’s plot here</p>
+<p>Notice the horizontal format of the bars. This is accomplished by attaching the coord_flip() function to the plot code (as seen above). Use horizontal bars when you have more than items to visualize and when the labels are on the longer side and would appear messy or squished if written along the bottom of the plot.</p>
+<p><strong>Tip:</strong> The theme also works for vertical bars; simply omit the coord_flip() function.</p>
+<p>###Two Groups</p>
+<p>The beauty of bar charts shines through when using more than one group. This chart format allows for simple comparisons that humans can perceive quickly.</p>
+<p>Here’s an example of a dodge chart (one that compares two groups side-by-side). The user can easily compare different races (?) for various counties across the country.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from Meongsu's dodge plot</span></span></code></pre></div>
+<p>Add photo of Meongsu’s plot here</p>
+<p><strong>Tip:</strong> The theme is quite flexible. The x-axis can support any type of categorical variable, whether it is geographic, race or time data.</p>
+<p>Similar to dodge charts are stacked charts in which the groups are stacked instead of next to each other.</p>
+<p>Here’s an example comparing the Asian and Hispanic populations in various rural communities.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Start off with population data from the U.S. Census Bureau's ACS</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(population_by_race_ah, <span class="fu">aes</span>(<span class="at">x=</span>county, <span class="at">y=</span>population, <span class="at">fill=</span>race)) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Asian and Hispanic populations</span><span class="sc">\n</span><span class="st">in rural communities"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">'All estimates are across 2019.'</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Year"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">'Population'</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_cori</span>() <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_cori</span>(<span class="at">palette=</span><span class="st">'ctg2gn'</span>) <span class="sc">+</span> <span class="co">#Use the color palette for the two greens</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cori_legend</span>()</span></code></pre></div>
+<p>Add photo of Matt’s plot here</p>
+<p><strong>Tip:</strong> For added clarity and a greater sense of the data, the package allows you to add a horizontal trend line with an average.</p>
+<p>Another interesting way to visualize the comparisons between two groups is to use a population pyramid. At its core, this is simply two bar charts that are rotated and positioned side-by-side.</p>
+<p>The following example compares the share of individuals with high-speed internet in Jefferson County, Alabama, over time, broken down by race.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Start with data on high speed internet access in Jefferson County Alabama</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(internet_access_sample_data, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(year), <span class="at">y=</span>percent_high_speed_internet, <span class="at">fill=</span>race)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">data =</span> <span class="fu">subset</span>(internet_access_sample_data, race<span class="sc">==</span><span class="st">"black"</span>), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">data =</span> <span class="fu">subset</span>(internet_access_sample_data, race<span class="sc">==</span><span class="st">"white"</span>), <span class="at">stat =</span> <span class="st">"identity"</span>,                               <span class="fu">aes</span>(<span class="at">y=</span><span class="sc">-</span>percent_high_speed_internet)) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Percent with high-speed internet</span><span class="sc">\n</span><span class="st">in Jefferson County, AL"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">'High-speed internet rates among White individuals were</span><span class="sc">\n</span><span class="st">almost double what they were among             Black individuals.'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">x=</span><span class="st">"Year"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">y=</span><span class="st">'</span><span class="sc">\n</span><span class="st">Percent with high-speed internet'</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_cori</span>() <span class="sc">+</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_cori</span>(<span class="at">palette=</span><span class="st">'ctg2gn'</span>) <span class="sc">+</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cori_legend</span>()</span></code></pre></div>
+<p>Add photo of Matt’s plot here</p>
+<p><strong>Tip:</strong> Use this graph format to compare two groups over time. It is usually used for comparing men and women, but it works as well for other categories.</p>
+<p><strong>Tip:</strong> Note that the time variable (x variable) must be a factor.</p>
+<p>###Multiple Groups</p>
+<p>With three or more groups, bar charts can help put the magnitude of different variables in perspective.</p>
+<p>Here’s an example of visualizing multiple racial categories across two different years.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from Harsh's dodge </span></span></code></pre></div>
+<p>Add photo of Harsh’s plot here</p>
+<p><strong>Tip:</strong> Make use of the several colors in the CORI custom palettes. The following palettes will be helpful when creating different bar charts: <em>ctg2gn: emerald and mint </em>ctg2or: orange and light orange <em>ctg2pu: purple and light purple </em>ctg2bu: blue and light blue *ctg7: emerald, mint, gold, orange, blue, purple and blue</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
