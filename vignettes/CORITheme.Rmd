@@ -16,15 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-install.packages("devtools")
-devtools::install_github("muwizayeon/CORITheme")
-
-library(ggplot2)
-library(dplyr)
-library(CORITheme)
-```
-
 ## Creating CORI-Themed Bar Graphs
 
 Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category). 
@@ -35,10 +26,10 @@ Here's the simplest type of bar chart. There is just one group visualized over m
 
 As an example, here's the population of diffrent races across the United States of America. 
 
-``` r
+``` {r}
 #Start off with population data from the U.S. Census Bureau's ACS
 data(upr)
-upr <- upre[,-c(1)]
+upr <- upr[,-c(1)]
 
 ggplot(upr,aes(y=race, x=population)) +
     geom_text(x = 0,aes(label = race),hjust=0,vjust=-2,size=3) +
@@ -60,7 +51,7 @@ The beauty of bar charts shines through when using more than one group. This cha
 
 Here's an example of a dodge chart (one that compares two groups side-by-side). The user can easily compare different unemployment levels in the top five rural counties with the highest unemployment levels.
 
-``` r
+``` {r}
 #  Rural counties with the highest number\nof unemployed people
 data(rcu)
 rcu <- rcu[,-c(1)]
@@ -88,7 +79,7 @@ Similar to dodge charts are stacked charts in which the groups are stacked inste
 
 Here's an example comparing the Asian and Hispanic populations in various rural communities. 
 
-``` r
+``` {r}
 #Start off with population data from the U.S. Census Bureau's ACS
 data(pbra)
 pbra <- pbra[,-c(1)]
@@ -111,7 +102,7 @@ Another interesting way to visualize the comparisons between two groups is to us
 
 The following example compares the share of individuals with high-speed internet in Jefferson County, Alabama, over time, broken down by race. 
 
-``` r
+``` {r}
 #Start with data on high speed internet access in Jefferson County Alabama
 data(ias)
 ias <- ias[,-c(1)]
@@ -140,7 +131,7 @@ With three or more groups, bar charts can help put the magnitude of different va
 
 Here's an example of visualizing multiple racial categories across two different years.
 
-``` r
+``` {r}
 #Start with data on for the United States Population by Year
 data(upr)
 upr <- upr[,-c(1)]

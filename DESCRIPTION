@@ -21,6 +21,7 @@ RoxygenNote: 7.1.2
 Suggests:
   knitr,
   rmarkdown,
+  dplyr,
   testthat
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
