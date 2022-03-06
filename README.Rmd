@@ -76,7 +76,16 @@ Similar to dodge charts are stacked charts in which the groups are stacked inste
 Here's an example comparing the Asian and Hispanic populations in various rural communities. 
 
 ```
-# Code from Matt's stacked bar chart
+#Start off with population data from the U.S. Census Bureau's ACS
+ggplot(population_by_race_ah, aes(x=county, y=population, fill=race)) + 
+    geom_bar(stat='identity') +
+    labs(title = "Asian and Hispanic populations\nin rural communities",
+         subtitle = 'All estimates are across 2019.',
+         x="Year", 
+         y='Population') + 
+    theme_cori() + 
+    scale_fill_cori(palette='ctg2gn') + #Use the color palette for the two greens
+    cori_legend()
 
 ```
 
@@ -89,7 +98,18 @@ Another interesting way to visualize the comparisons between two groups is to us
 The following example compares the share of individuals with high-speed internet in Jefferson County, Alabama, over time, broken down by race. 
 
 ```
-# Code from Matt's population pyramid plot
+#Start with data on high speed internet access in Jefferson County Alabama
+ggplot(internet_access_sample_data, aes(x=as.factor(year), y=percent_high_speed_internet, fill=race)) + 
+    geom_bar(data = subset(internet_access_sample_data, race=="black"), stat = "identity") +
+    geom_bar(data = subset(internet_access_sample_data, race=="white"), stat = "identity",                               aes(y=-percent_high_speed_internet)) + 
+    coord_flip() +
+    labs(title = "Percent with high-speed internet\nin Jefferson County, AL",
+         subtitle = 'High-speed internet rates among White individuals were\nalmost double what they were among             Black individuals.',
+          x="Year", 
+          y='\nPercent with high-speed internet') +
+    theme_cori() + 
+    scale_fill_cori(palette='ctg2gn') + 
+    cori_legend()
 
 ```
 
