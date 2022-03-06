@@ -4,7 +4,7 @@
 #' according to the CORI style guide.
 #'
 #' @import extrafont
-#' @import ggreple
+#' @import greple
 #' @md
 #'
 #' @param
