@@ -30,33 +30,33 @@ You can install the development version of CORITheme from [GitHub](https://githu
 devtools::install_github("muwizayeon/CORITheme")
 ```
 
-```{r example}
+```{r package}
+library(ggplot2)
 library(CORITheme)
-## basic example code
 ```
 
-## Bar Charts
+## Creating CORI-Themed Bar Graphs 
 
 Like line graphs, bar charts can show trends in data quite effectively. However, bar charts are particularly useful (and especially popular) because of their ability to allow audiences to make comparisons quickly and efficiently (for example, one category is twice as large as another category). 
 
-###One Group
+### One Group
 
 Here's the simplest type of bar chart. There is just one group visualized over multiple categories. This is what most people picture when thinking about bar charts.
 
 As an example, here's the population of diffrent races across the United States of America. 
 
-```
-# Code from Harsh's horizontal one-color bar chart
+``` r
 #Start off with population data from the U.S. Census Bureau's ACS
-ggplot(new_data,aes(y=race, x=population)) +
+data(upr)
+ggplot(upr,aes(y=race, x=population)) +
     geom_text(x = 0,aes(label = race),hjust=0,vjust=-2,size=3) +
   geom_bar(stat = "identity",width=0.5, fill = "#01835D")+
     theme_cori() + theme_cori_horizontal_bars() +
   labs(title = "Population in the USA by Race",
      subtitle = 'Population across the United States in the year 2014 by the race',
      x="\nPopulation in Numbers") 
+```
 
-Add photo of Harsh's plot here 
 
 Notice the horizontal format of the bars. This is accomplished by attaching the coord_flip() function to the plot code (as seen above). Use horizontal bars when you have more than items to visualize and when the labels are on the longer side and would appear messy or squished if written along the bottom of the plot. 
 

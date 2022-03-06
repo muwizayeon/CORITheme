@@ -12,3 +12,6 @@ usethis::use_data(rsh_pop, compress="xz", overwrite = TRUE)
 
 pbra <- read.csv("population_by_race_ah.csv")
 usethis::use_data(pbra, compress="xz", overwrite = TRUE)
+
+upr <- read.csv("us_pop_race.csv")
+usethis::use_data(upr, compress="xz", overwrite = TRUE)
