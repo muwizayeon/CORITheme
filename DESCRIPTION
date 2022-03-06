@@ -11,7 +11,8 @@ Depends: R (>= 3.1.0)
 Imports:
   ggplot2,
   extrafont,
-  ggrepel
+  ggrepel,
+  tibble
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
