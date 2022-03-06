@@ -106,7 +106,7 @@ With three or more groups, bar charts can help put the magnitude of different va
 Here's an example of visualizing multiple racial categories across two different years.
 
 ```
-# Code from Harsh's dodge chart
+# Code from Harsh's dodge 
 
 ```
 
